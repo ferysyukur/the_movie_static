@@ -15,11 +15,11 @@ class MovieRow extends StatelessWidget {
         new Container(
           margin: new EdgeInsets.only(left: 40.0, right: 30.0, top: 5.0, bottom: 10.0),
           padding: new EdgeInsets.only(left: 90.0, right: 10.0, top: 10.0),
-          height: 150.0,
+          height: 170.0,
           decoration: new BoxDecoration(
             color: Colors.blueGrey,
             shape: BoxShape.rectangle,
-            borderRadius: new BorderRadius.circular(20.0),
+            borderRadius: new BorderRadius.circular(10.0),
             boxShadow: <BoxShadow>[
               new BoxShadow(
                 color: Colors.black26,
@@ -28,6 +28,7 @@ class MovieRow extends StatelessWidget {
             ]
           ),
           child: new Column(
+            mainAxisSize: MainAxisSize.max,
             children: <Widget>[
               new Padding(
                 padding: const EdgeInsets.symmetric(vertical: 5.0),
@@ -37,12 +38,16 @@ class MovieRow extends StatelessWidget {
                   ),
                 ),
               ),
-              new Text(movie.overview,
-                textAlign: TextAlign.justify,
-                style: textTheme.body1.copyWith(
-                  color: Colors.white
+              new Expanded(
+                child: new Text(movie.overview,
+                  textAlign: TextAlign.justify,
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 7,
+                  style: textTheme.body1.copyWith(
+                    color: Colors.white
+                  ),
                 ),
-              )
+              ),
             ],
           ),
         ),
